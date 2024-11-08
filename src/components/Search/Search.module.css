@@ -1,0 +1,19 @@
+.Search {
+  display: flex;
+  padding: 0 15px;
+  border: 1px solid rgba(0, 0, 0, 0.185);
+  border-radius: 10px;
+}
+
+.input {
+  border: none;
+  font-family: "Lexend Deca", serif;
+  font-size: 20px;
+  font-weight: 300;
+  width: 600px;
+  height: 64px;
+}
+
+input:focus {
+  outline: none;
+}
