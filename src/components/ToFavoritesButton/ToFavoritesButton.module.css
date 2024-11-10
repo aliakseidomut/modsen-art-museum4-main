@@ -1,0 +1,25 @@
+.ToFavoriteButton {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+}
+
+.ToFavoriteButton:hover {
+  cursor: pointer;
+  background-color: #fbd6b275;
+}
+
+.ToFavoriteButtonActive {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: #fbd6b246;
+}
+
+.ToFavoriteButtonActive:hover {
+  cursor: pointer;
+  background-color: #fbd6b275;
+}

@@ -29,32 +29,6 @@
   height: 100%;
 }
 
-.favoriteButton {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  border: none;
-  background-color: rgb(255, 255, 255);
-}
-
-.favoriteButton:hover {
-  cursor: pointer;
-  background-color: #fbd6b275;
-}
-
-.favoriteButtonActive {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  border: none;
-  background-color: #fbd6b246;
-}
-
-.favoriteButtonActive:hover {
-  cursor: pointer;
-  background-color: #fbd6b275;
-}
-
 .img {
   max-height: 500px;
 }
