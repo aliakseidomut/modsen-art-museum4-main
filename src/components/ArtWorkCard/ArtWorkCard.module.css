@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 390px;
 }
 .info {
   position: relative;
@@ -14,13 +15,17 @@
   padding: 20px;
 }
 .img {
-  max-width: 390px;
+  max-height: 500px;
 }
 
 .h2 {
   font-size: 18px;
   margin-top: 10px;
   font-weight: 500;
+  width: 230px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .h3 {

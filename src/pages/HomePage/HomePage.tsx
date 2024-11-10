@@ -68,11 +68,15 @@ export default function HomePage() {
         )}
       </div>
 
-      <Pagination
-        onSetPage={handleSetPage}
-        curPage={curPage}
-        totalPages={totalPages}
-      />
+      {totalPages !== 0 ? (
+        <Pagination
+          onSetPage={handleSetPage}
+          curPage={curPage}
+          totalPages={totalPages}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
