@@ -41,4 +41,8 @@
   margin-top: 10px;
   font-weight: 400;
   color: #e0a449;
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
