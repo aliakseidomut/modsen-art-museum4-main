@@ -22,7 +22,7 @@ interface ApiResponse {
 }
 
 export default class Api {
-  public static async getArtWork(id: number): Promise<ArtWorkInfo> {
+  public static async getArtWork(id: number | string): Promise<ArtWorkInfo> {
     const url = `${BASE_URL}/artworks/${id}?fields=${ARTWORK_FIELDS}`;
 
     const res = await fetch(url);
@@ -44,7 +44,7 @@ export default class Api {
     };
   }
 
-  public static async getArtWorks(ids: number[]) {
+  public static async getArtWorks(ids: number[] | string[]) {
     const promises = ids.map(id => this.getArtWork(id));
     const results = await Promise.all(promises);
 

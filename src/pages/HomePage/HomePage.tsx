@@ -60,6 +60,7 @@ export default function HomePage() {
           artworks.map((el: ArtWorkInfo) => (
             <ArtWorkCard
               key={el.id}
+              id={el.id}
               imgUrl={el.imgUrl}
               title={el.title}
               artistTitle={el.artistTitle}
