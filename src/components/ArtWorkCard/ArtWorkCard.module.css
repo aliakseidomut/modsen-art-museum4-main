@@ -1,0 +1,35 @@
+.ArtWorkCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 390px;
+}
+.info {
+  position: relative;
+  bottom: 30px;
+  width: 334px;
+  height: 100px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.35);
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+.img {
+  max-height: 500px;
+}
+
+.h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 500;
+  width: 230px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.h3 {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 400;
+}
