@@ -22,14 +22,7 @@ export default function ArtWorkPage() {
         className={styles.imgDiv}
         style={{ backgroundImage: `url(${artWork?.imgUrl})` }}
       >
-        {artWork && (
-          <ToFavoritesButton
-            id={artWork.id}
-            imgUrl={artWork.imgUrl}
-            title={artWork.title}
-            artistTitle={artWork.artistTitle}
-          />
-        )}
+        {id && <ToFavoritesButton id={id} />}
       </div>
       <div className={styles.info}>
         <div className={styles.mainInfo}>

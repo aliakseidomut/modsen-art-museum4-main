@@ -2,17 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdBookmarkBorder } from "react-icons/md";
 import styles from "./ToFavoritesButton.module.css";
 
-export default function ToFavoritesButton({
-  id,
-  imgUrl,
-  title,
-  artistTitle,
-}: {
-  id: number | string;
-  imgUrl: string;
-  title: string;
-  artistTitle: string;
-}) {
+export default function ToFavoritesButton({ id }: { id: number | string }) {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -28,10 +18,7 @@ export default function ToFavoritesButton({
       localStorage.removeItem(`${id}`);
       setIsActive(false);
     } else {
-      localStorage.setItem(
-        `${id}`,
-        JSON.stringify({ imgUrl, title, artistTitle }),
-      );
+      localStorage.setItem(`${id}`, `${null}`);
       setIsActive(true);
     }
   };

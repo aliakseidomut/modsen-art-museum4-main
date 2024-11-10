@@ -19,12 +19,7 @@ export default function ArtWorkCard({ id, imgUrl, title, artistTitle }: Props) {
           <h2 className={styles.h2}>{title}</h2>
           <h3 className={styles.h3}>{artistTitle}</h3>
         </div>
-        <ToFavoritesButton
-          id={id}
-          imgUrl={imgUrl}
-          title={title}
-          artistTitle={artistTitle}
-        />
+        <ToFavoritesButton id={id} />
       </div>
     </NavLink>
   );
