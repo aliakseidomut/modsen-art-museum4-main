@@ -11,3 +11,10 @@
   color: #e0a449;
   text-align: center;
 }
+
+.artWorks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 10px;
+  margin-top: 25px;
+}
