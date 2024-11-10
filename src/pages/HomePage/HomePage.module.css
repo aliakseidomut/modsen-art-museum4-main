@@ -10,3 +10,22 @@
   text-align: center;
   margin-top: 120px;
 }
+
+.h3 {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 100px;
+  color: #e0a449;
+}
+
+.artWorks {
+  display: flex;
+  margin-top: 50px;
+  gap: 100px;
+  min-height: 300px;
+}
