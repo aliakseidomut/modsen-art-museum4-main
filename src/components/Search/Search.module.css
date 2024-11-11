@@ -23,3 +23,9 @@ input:focus {
   color: red;
   font-weight: 300;
 }
+
+@media (max-width: 768px) {
+  .input {
+    max-width: 300px;
+  }
+}
