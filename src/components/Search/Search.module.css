@@ -18,3 +18,8 @@
 input:focus {
   outline: none;
 }
+
+.error {
+  color: red;
+  font-weight: 300;
+}

@@ -1,13 +1,14 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { searchSchema } from "@utils/searchSchema";
 import styles from "./Search.module.css";
 
 interface Props {
   onSearch: (value: string) => void;
-  setError: (error: string | null) => void;
 }
 
-export default function Search({ onSearch, setError }: Props) {
+export default function Search({ onSearch }: Props) {
+  const [error, setError] = useState<string | null>(null);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
@@ -25,17 +26,20 @@ export default function Search({ onSearch, setError }: Props) {
   };
 
   return (
-    <div className={styles.Search}>
-      <input
-        className={styles.input}
-        type="text"
-        placeholder="Search art, artist, work..."
-        onChange={handleChange}
-      />
-      <img
-        src="https://raw.githubusercontent.com/aliakseidomut/modsen-art-museum4-main/8a35c43bba1f5065c852af2b5d0fbd4925472ba6/src/assets/images/search.svg"
-        alt="search icon"
-      />
-    </div>
+    <>
+      <div className={styles.Search}>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Search art, artist, work..."
+          onChange={handleChange}
+        />
+        <img
+          src="https://raw.githubusercontent.com/aliakseidomut/modsen-art-museum4-main/8a35c43bba1f5065c852af2b5d0fbd4925472ba6/src/assets/images/search.svg"
+          alt="search icon"
+        />
+      </div>
+      {error && <p className={styles.error}>{error}</p>}
+    </>
   );
 }
