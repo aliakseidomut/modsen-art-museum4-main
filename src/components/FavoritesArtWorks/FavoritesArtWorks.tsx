@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "./FavoritesArtWorks.module.css";
-import { ArtWorkInfo } from "../../types/ArtWork";
-import Api from "../../utils/Api";
-import { getAllLocalStorageKeys } from "../../utils/getAllLocalStorageKeys";
 import { ClipLoader } from "react-spinners";
-import ArtWorkCardMini from "../ArtWorkCardMini/ArtWorkCardMini";
+import { ArtWorkInfo } from "../../types/ArtWork";
+import { getAllLocalStorageKeys } from "@utils/getAllLocalStorageKeys";
+import ArtWorkCardMini from "@components/ArtWorkCardMini/ArtWorkCardMini";
+import Api from "@utils/Api";
+import styles from "./FavoritesArtWorks.module.css";
 
 export default function FavoritesArtWorks() {
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);

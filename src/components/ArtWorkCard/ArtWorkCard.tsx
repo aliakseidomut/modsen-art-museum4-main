@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./ArtWorkCard.module.css";
 import { NavLink } from "react-router-dom";
-import ToFavoritesButton from "../ToFavoritesButton/ToFavoritesButton";
+import ToFavoritesButton from "@components/ToFavoritesButton/ToFavoritesButton";
+import styles from "./ArtWorkCard.module.css";
 
 interface Props {
   id: number;

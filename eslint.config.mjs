@@ -25,6 +25,6 @@ export default [
     },
   },
   {
-    ignores: ["commitlint.config.js"],
+    ignores: ["commitlint.config.js", "craco.config.js"],
   },
 ];
