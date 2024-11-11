@@ -3,6 +3,7 @@ import { ClipLoader } from "react-spinners";
 import ArtWorkCard from "@components/ArtWorkCard/ArtWorkCard";
 import Pagination from "@components/Pagination/Pagination";
 import Search from "@components/Search/Search";
+import Sort from "@components/Sort/Sort";
 import { ArtWorkInfo } from "../../types/ArtWork";
 import Api from "@utils/Api";
 import useDebounce from "@utils/hooks/useDebounce";
@@ -14,6 +15,7 @@ const LIMIT: number = 2;
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState("");
   const [curPage, setCurPage] = useState(1);
+  const [sortValue, setSortValue] = useState("");
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -21,12 +23,18 @@ export default function HomePage() {
 
   const debouncedSearchValue = useDebounce(searchValue);
   const debouncedCurPage = useDebounce(curPage, 200);
+  const debouncedSortValue = useDebounce(sortValue);
 
   useEffect(() => {
     setIsLoading(true);
     setError(null);
 
-    Api.getPage(debouncedCurPage, LIMIT, debouncedSearchValue)
+    Api.getPage(
+      debouncedCurPage,
+      LIMIT,
+      debouncedSearchValue,
+      debouncedSortValue,
+    )
       .then(artworks => {
         setArtworks(artworks);
         setIsLoading(false);
@@ -43,7 +51,7 @@ export default function HomePage() {
       .catch(err => {
         setError(err);
       });
-  }, [debouncedSearchValue, debouncedCurPage]);
+  }, [debouncedSearchValue, debouncedCurPage, debouncedSortValue]);
 
   const handleSearch = (str: string) => {
     setSearchValue(str);
@@ -54,19 +62,21 @@ export default function HomePage() {
     setCurPage(curPage);
   };
 
+  const handleSortChange = (sort: string) => {
+    setSortValue(sort);
+    setCurPage(1);
+  };
+
   return (
     <div className={styles.HomePage}>
       <h2 className={styles.h2}>
         Let&apos;s Find Some <span style={{ color: "#F17900" }}>Art</span> Here!
       </h2>
-
       <Search onSearch={handleSearch} setError={setError} />
-
+      <Sort onSortChange={handleSortChange} />{" "}
       {error && <div className={styles.error}>{error}</div>}
-
       <h4 className={styles.h4}>Topics for you</h4>
       <h3 className={styles.h3}>Our special gallery</h3>
-
       <div className={styles.artWorks}>
         {isLoading ? (
           <ClipLoader color="#F17900" loading={isLoading} size={50} />
@@ -84,7 +94,6 @@ export default function HomePage() {
           ))
         )}
       </div>
-
       {totalPages !== 0 && (
         <Pagination
           onSetPage={handleSetPage}
@@ -92,8 +101,7 @@ export default function HomePage() {
           totalPages={totalPages}
         />
       )}
-
-      <OtherWorks totalPages={totalPages} />
+      <OtherWorks />
     </div>
   );
 }

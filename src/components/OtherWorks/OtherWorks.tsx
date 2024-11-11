@@ -4,11 +4,11 @@ import { ArtWorkInfo } from "../../types/ArtWork";
 import ArtWorkCardMini from "@components/ArtWorkCardMini/ArtWorkCardMini";
 import Api from "@utils/Api";
 
-export default function OtherWorks({ totalPages }: { totalPages: number }) {
+export default function OtherWorks() {
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);
 
   useEffect(() => {
-    const rand = Math.floor(1 + Math.random() * (totalPages + 1 - 1));
+    const rand = Math.floor(1 + Math.random() * (100 + 1 - 1));
     Api.getPage(rand, 9).then(artworks => setArtworks(artworks));
   }, []);
 

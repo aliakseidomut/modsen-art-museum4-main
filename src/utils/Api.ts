@@ -43,7 +43,9 @@ export default class Api {
     };
   }
 
-  public static async getArtWorks(ids: number[] | string[]) {
+  public static async getArtWorks(
+    ids: number[] | string[],
+  ): Promise<ArtWorkInfo[]> {
     const promises = ids.map(id => this.getArtWork(id));
     const results = await Promise.all(promises);
 
@@ -53,12 +55,13 @@ export default class Api {
   public static async getPage(
     page: number,
     limit: number,
-    search?: string,
+    search: string = "",
+    sort: string = "",
   ): Promise<ArtWorkInfo[]> {
-    let url: string = `${BASE_URL}/artworks?limit=${limit}&page=${page}`;
+    let url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}`;
 
-    if (search) {
-      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}`;
+    if (sort) {
+      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}&sort=${sort}`;
     }
 
     const res = await fetch(url);
@@ -72,7 +75,7 @@ export default class Api {
     limit: number,
     search?: string,
   ): Promise<number> {
-    let url: string = `${BASE_URL}/artworks?limit=${limit}`;
+    let url = `${BASE_URL}/artworks?limit=${limit}`;
 
     if (search) {
       url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}`;
