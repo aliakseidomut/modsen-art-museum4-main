@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styles from "./HomePage.module.css";
-import Search from "../../components/Search/Search";
-import useDebounce from "../../utils/hooks/useDebounce";
-import ArtWorkCard from "../../components/ArtWorkCard/ArtWorkCard";
-import Api from "../../utils/Api";
-import { ArtWorkInfo } from "../../types/ArtWork";
-import Pagination from "../../components/Pagination/Pagination";
 import { ClipLoader } from "react-spinners";
+import ArtWorkCard from "@components/ArtWorkCard/ArtWorkCard";
+import Pagination from "@components/Pagination/Pagination";
+import Search from "@components/Search/Search";
+import { ArtWorkInfo } from "../../types/ArtWork";
+import Api from "@utils/Api";
+import useDebounce from "@utils/hooks/useDebounce";
+import styles from "./HomePage.module.css";
 
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -54,7 +54,7 @@ export default function HomePage() {
   return (
     <div className={styles.HomePage}>
       <h2 className={styles.h2}>
-        Let's Find Some <span style={{ color: "#F17900" }}>Art</span> Here!
+        Let&apos;s Find Some <span style={{ color: "#F17900" }}>Art</span> Here!
       </h2>
 
       <Search onSearch={handleSearch} setError={setError} />

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./FavoritesPage.module.css";
 import { MdBookmarkBorder } from "react-icons/md";
-import FavoritesArtWorks from "../../components/FavoritesArtWorks/FavoritesArtWorks";
+import FavoritesArtWorks from "@components/FavoritesArtWorks/FavoritesArtWorks";
+import styles from "./FavoritesPage.module.css";
 
 export default function FavoritesPage() {
   return (

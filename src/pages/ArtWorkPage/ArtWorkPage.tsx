@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ArtWorkInfo } from "../../types/ArtWork";
-import Api from "../../utils/Api";
 import { useParams } from "react-router-dom";
+import { ArtWorkInfo } from "../../types/ArtWork";
+import ToFavoritesButton from "@components/ToFavoritesButton/ToFavoritesButton";
+import Api from "@utils/Api";
 import styles from "./ArtWorkPage.module.css";
-import ToFavoritesButton from "../../components/ToFavoritesButton/ToFavoritesButton";
 
 export default function ArtWorkPage() {
   const id = useParams().id;

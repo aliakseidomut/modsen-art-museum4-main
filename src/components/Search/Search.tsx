@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
+import { searchSchema } from "@utils/searchSchema";
 import styles from "./Search.module.css";
-import { searchSchema } from "../../utils/searchSchema";
 
 interface Props {
   onSearch: (value: string) => void;
