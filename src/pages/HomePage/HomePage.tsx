@@ -20,7 +20,6 @@ export default function HomePage() {
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   const debouncedSearchValue = useDebounce(searchValue);
   const debouncedCurPage = useDebounce(curPage, 200);
@@ -28,30 +27,20 @@ export default function HomePage() {
 
   useEffect(() => {
     setIsLoading(true);
-    setError(null);
 
     Api.getPage(
       debouncedCurPage,
       LIMIT,
       debouncedSearchValue,
       debouncedSortValue,
-    )
-      .then(artworks => {
-        setArtworks(artworks);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        setError(err);
-        setIsLoading(false);
-      });
+    ).then(artworks => {
+      setArtworks(artworks);
+      setIsLoading(false);
+    });
 
-    Api.getTotalPages(LIMIT, debouncedSearchValue)
-      .then(res => {
-        setTotalPages(res);
-      })
-      .catch(err => {
-        setError(err);
-      });
+    Api.getTotalPages(LIMIT, debouncedSearchValue).then(res => {
+      setTotalPages(res);
+    });
   }, [debouncedSearchValue, debouncedCurPage, debouncedSortValue]);
 
   const handleSearch = (str: string) => {
@@ -74,11 +63,9 @@ export default function HomePage() {
         Let&apos;s Find Some <span style={{ color: "#F17900" }}>Art</span> Here!
       </h2>
       <ErrorBoundary>
-        <Search onSearch={handleSearch} setError={setError} />
+        <Search onSearch={handleSearch} />
         <Sort onSortChange={handleSortChange} />
       </ErrorBoundary>
-
-      {error && <div className={styles.error}>{error}</div>}
 
       <h4 className={styles.h4}>Topics for you</h4>
       <h3 className={styles.h3}>Our special gallery</h3>
@@ -88,7 +75,7 @@ export default function HomePage() {
           {isLoading ? (
             <ClipLoader color="#F17900" loading={isLoading} size={50} />
           ) : artworks.length === 0 ? (
-            <h1>Not found</h1>
+            <h2>Not found</h2>
           ) : (
             artworks.map((el: ArtWorkInfo) => (
               <ArtWorkCard

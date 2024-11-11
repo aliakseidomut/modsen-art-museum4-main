@@ -21,15 +21,19 @@ export default function FavoritesArtWorks() {
       <h4 className={styles.h4}>Saved by you</h4>
       <h3 className={styles.h3}>Your favorites list</h3>
       <div className={styles.artWorks}>
-        {artworks.map((el: ArtWorkInfo) => (
-          <ArtWorkCardMini
-            key={el.id}
-            id={el.id}
-            imgUrl={el.imgUrl}
-            title={el.title}
-            artistTitle={el.artistTitle}
-          />
-        ))}
+        {!artworks[0] ? (
+          <h2>No favorites</h2>
+        ) : (
+          artworks.map((el: ArtWorkInfo) => (
+            <ArtWorkCardMini
+              key={el.id}
+              id={el.id}
+              imgUrl={el.imgUrl}
+              title={el.title}
+              artistTitle={el.artistTitle}
+            />
+          ))
+        )}
       </div>
     </div>
   );

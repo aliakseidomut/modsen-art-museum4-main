@@ -17,4 +17,5 @@
   flex-wrap: wrap;
   gap: 15px 10px;
   margin-top: 25px;
+  justify-content: center;
 }
