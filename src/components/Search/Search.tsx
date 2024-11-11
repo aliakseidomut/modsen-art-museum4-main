@@ -1,13 +1,27 @@
 import React, { ChangeEvent } from "react";
 import styles from "./Search.module.css";
+import { searchSchema } from "../../utils/searchSchema";
 
 interface Props {
   onSearch: (value: string) => void;
+  setError: (error: string | null) => void;
 }
 
-export default function Search({ onSearch }: Props) {
+export default function Search({ onSearch, setError }: Props) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onSearch(e.target.value);
+    const value = e.target.value;
+
+    searchSchema
+      .validate(value)
+      .then(validatedValue => {
+        setError(null);
+        if (validatedValue || validatedValue === "") {
+          onSearch(validatedValue);
+        }
+      })
+      .catch(err => {
+        setError(err.message);
+      });
   };
 
   return (
