@@ -7,6 +7,9 @@ import { ArtWorkInfo } from "../../types/ArtWork";
 import Api from "@utils/Api";
 import useDebounce from "@utils/hooks/useDebounce";
 import styles from "./HomePage.module.css";
+import OtherWorks from "@components/OtherWorks/OtherWorks";
+
+const LIMIT: number = 2;
 
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -23,7 +26,7 @@ export default function HomePage() {
     setIsLoading(true);
     setError(null);
 
-    Api.getPage(debouncedCurPage, debouncedSearchValue)
+    Api.getPage(debouncedCurPage, LIMIT, debouncedSearchValue)
       .then(artworks => {
         setArtworks(artworks);
         setIsLoading(false);
@@ -33,7 +36,7 @@ export default function HomePage() {
         setIsLoading(false);
       });
 
-    Api.getTotalPages(debouncedSearchValue)
+    Api.getTotalPages(LIMIT, debouncedSearchValue)
       .then(res => {
         setTotalPages(res);
       })
@@ -89,6 +92,8 @@ export default function HomePage() {
           totalPages={totalPages}
         />
       )}
+
+      <OtherWorks totalPages={totalPages} />
     </div>
   );
 }

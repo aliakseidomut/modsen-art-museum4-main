@@ -1,7 +1,6 @@
 import { ArtWorkInfo } from "../types/ArtWork";
 
 const BASE_URL: string = "https://api.artic.edu/api/v1";
-const LIMIT: number = 2;
 const ARTWORK_FIELDS: string =
   "id,title,artist_title,artist_display,dimensions,credit_line,short_description,image_id,date_display";
 
@@ -53,9 +52,14 @@ export default class Api {
 
   public static async getPage(
     page: number,
-    search: string,
+    limit: number,
+    search?: string,
   ): Promise<ArtWorkInfo[]> {
-    const url = `${BASE_URL}/artworks/search?q=${search}&limit=${LIMIT}&page=${page}`;
+    let url: string = `${BASE_URL}/artworks?limit=${limit}&page=${page}`;
+
+    if (search) {
+      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}`;
+    }
 
     const res = await fetch(url);
     const data: ApiResponse = await res.json();
@@ -64,8 +68,15 @@ export default class Api {
     return this.getArtWorks(ids);
   }
 
-  public static async getTotalPages(search: string): Promise<number> {
-    const url = `${BASE_URL}/artworks/search?q=${search}&limit=${LIMIT}`;
+  public static async getTotalPages(
+    limit: number,
+    search?: string,
+  ): Promise<number> {
+    let url: string = `${BASE_URL}/artworks?limit=${limit}`;
+
+    if (search) {
+      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}`;
+    }
 
     const res = await fetch(url);
     const data = await res.json();
