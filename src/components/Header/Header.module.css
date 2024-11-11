@@ -6,10 +6,16 @@
     #282828 98.98%
   );
   height: 127px;
+  padding: 0 10px;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 300px;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .logo {
