@@ -12,11 +12,6 @@ export default function Footer() {
             alt="museum logo"
           />
         </NavLink>
-
-        <img
-          src="https://github.com/aliakseidomut/modsen-art-museum4-main/blob/feature/initial-project-setup/src/assets/images/modsen-logo.png?raw=true"
-          alt="modsen logo"
-        />
       </div>
     </footer>
   );

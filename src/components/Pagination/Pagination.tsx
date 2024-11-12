@@ -16,7 +16,7 @@ export default function Pagination({ onSetPage, curPage, searchValue }: Props) {
     Api.getTotalPages(LIMIT_SEARCH_PAGE, searchValue).then(res => {
       setTotalPages(res);
     });
-  }, [totalPages]);
+  }, [totalPages, searchValue]);
 
   const handleClick = (num: number) => {
     if (num !== curPage) {
