@@ -1,0 +1,29 @@
+.FavoritesPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.h2 {
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 500px;
+  margin: 120px auto 0;
+}
+
+.MdBookmarkBorder {
+  size: 55px;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    font-size: 32px;
+  }
+
+  .MdBookmarkBorder {
+    size: 20px;
+  }
+}

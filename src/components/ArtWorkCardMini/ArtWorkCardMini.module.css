@@ -1,0 +1,47 @@
+.ArtWorkCardMini {
+  display: flex;
+  width: 416px;
+  text-decoration-line: none;
+  padding: 20px 10px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.ArtWorkCardMini:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.486);
+}
+
+.data {
+  display: flex;
+  gap: 10px;
+}
+
+.info {
+  max-width: 200px;
+}
+
+.img {
+  width: 80px;
+  height: 80px;
+}
+
+.h2 {
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #393939;
+}
+
+.h3 {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: 400;
+  color: #e0a449;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

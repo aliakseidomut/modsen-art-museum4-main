@@ -1,0 +1,38 @@
+.Pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: #f1780080;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonActive {
+  width: 30px;
+  height: 30px;
+  background-color: #f17900;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
