@@ -1,89 +1,100 @@
-import { ArtWorkInfo } from "../types/ArtWork";
-
-const BASE_URL: string = "https://api.artic.edu/api/v1";
-const ARTWORK_FIELDS: string =
-  "id,title,artist_title,artist_display,dimensions,credit_line,short_description,image_id,date_display";
-
-interface ArtworkData {
-  id: number;
-  title: string;
-  artist_title: string;
-  artist_display: string;
-  dimensions: string;
-  credit_line: string;
-  short_description: string;
-  image_id: string;
-  date_display: string;
-}
-
-interface ApiResponse {
-  data: ArtworkData[];
-}
+import { ARTWORK_FIELDS } from "@constants/apiConstants";
+import { ApiResponse, ArtWorkInfo, ArtworkServerData } from "../types/ArtWork";
+import { buildUrl } from "@utils/buildUrl";
 
 export default class Api {
   public static async getArtWork(id: number | string): Promise<ArtWorkInfo> {
-    const url = `${BASE_URL}/artworks/${id}?fields=${ARTWORK_FIELDS}`;
+    const url = buildUrl(`artworks/${id}`, {
+      fields: ARTWORK_FIELDS,
+    });
 
-    const res = await fetch(url);
-    const art = await res.json();
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Failed to fetch artwork: ${res.statusText}`);
+      }
+      const art = await res.json();
 
-    return {
-      id: art.data.id,
-      imgUrl: art.data.image_id
-        ? `https://www.artic.edu/iiif/2/${art.data.image_id}/full/full/0/default.jpg`
-        : "",
-      title: art.data.title,
-      artistTitle: art.data.artist_title,
-      artistInfo: art.data.artist_display,
-      isFavorite: false,
-      dimensions: art.data.dimensions,
-      description: art.data.short_description,
-      creditLine: art.data.credit_line,
-      dateDisplay: art.data.date_display,
-    };
+      return {
+        id: art.data.id,
+        imgUrl: art.data.image_id
+          ? `https://www.artic.edu/iiif/2/${art.data.image_id}/full/full/0/default.jpg`
+          : "",
+        title: art.data.title,
+        artistTitle: art.data.artist_title,
+        artistInfo: art.data.artist_display,
+        isFavorite: false,
+        dimensions: art.data.dimensions,
+        description: art.data.short_description,
+        creditLine: art.data.credit_line,
+        dateDisplay: art.data.date_display,
+      };
+    } catch (error) {
+      console.error("Error fetching artwork:", error);
+      throw error;
+    }
   }
 
   public static async getArtWorks(
-    ids: number[] | string[],
+    ids: (number | string)[],
   ): Promise<ArtWorkInfo[]> {
     const promises = ids.map(id => this.getArtWork(id));
-    const results = await Promise.all(promises);
-
-    return results;
+    try {
+      const results = await Promise.all(promises);
+      return results;
+    } catch (error) {
+      console.error("Error fetching artworks:", error);
+      throw error;
+    }
   }
 
   public static async getPage(
-    page: number,
     limit: number,
-    search: string = "",
-    sort: string = "",
+    page: number,
+    search?: string,
+    sort?: string,
   ): Promise<ArtWorkInfo[]> {
-    let url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}`;
+    const url = buildUrl("artworks/search", {
+      limit: limit.toString(),
+      page: page.toString(),
+      q: search || "",
+      sort: sort || "",
+    });
 
-    if (sort) {
-      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}&page=${page}&sort=${sort}`;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Failed to fetch artworks page: ${res.statusText}`);
+      }
+      const data: ApiResponse = await res.json();
+
+      const ids = data.data.map((item: ArtworkServerData) => item.id);
+      return this.getArtWorks(ids);
+    } catch (error) {
+      console.error("Error fetching page:", error);
+      throw error;
     }
-
-    const res = await fetch(url);
-    const data: ApiResponse = await res.json();
-
-    const ids = data.data.map((item: ArtworkData) => item.id);
-    return this.getArtWorks(ids);
   }
 
   public static async getTotalPages(
     limit: number,
     search?: string,
   ): Promise<number> {
-    let url = `${BASE_URL}/artworks?limit=${limit}`;
+    const url = buildUrl("artworks", {
+      limit: limit.toString(),
+      q: search || "",
+    });
 
-    if (search) {
-      url = `${BASE_URL}/artworks/search?q=${search}&limit=${limit}`;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error(`Failed to fetch total pages: ${res.statusText}`);
+      }
+      const data = await res.json();
+      return data.pagination.total_pages;
+    } catch (error) {
+      console.error("Error fetching total pages:", error);
+      throw error;
     }
-
-    const res = await fetch(url);
-    const data = await res.json();
-
-    return data.pagination.total_pages;
   }
 }

@@ -10,8 +10,7 @@ import useDebounce from "@utils/hooks/useDebounce";
 import styles from "./HomePage.module.css";
 import OtherWorks from "@components/OtherWorks/OtherWorks";
 import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
-
-const LIMIT: number = 2;
+import { LIMIT_SEARCH_PAGE } from "@constants/uiConstants";
 
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState("");
@@ -29,8 +28,8 @@ export default function HomePage() {
     setIsLoading(true);
 
     Api.getPage(
+      LIMIT_SEARCH_PAGE,
       debouncedCurPage,
-      LIMIT,
       debouncedSearchValue,
       debouncedSortValue,
     ).then(artworks => {
@@ -38,7 +37,7 @@ export default function HomePage() {
       setIsLoading(false);
     });
 
-    Api.getTotalPages(LIMIT, debouncedSearchValue).then(res => {
+    Api.getTotalPages(LIMIT_SEARCH_PAGE, debouncedSearchValue).then(res => {
       setTotalPages(res);
     });
   }, [debouncedSearchValue, debouncedCurPage, debouncedSortValue]);
