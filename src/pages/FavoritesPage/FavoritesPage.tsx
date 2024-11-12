@@ -9,7 +9,10 @@ export default function FavoritesPage() {
       <h2 className={styles.h2}>
         Here Are Your
         <span style={{ color: "#F17900" }}>
-          <MdBookmarkBorder size={55} color="#F17900" />
+          <MdBookmarkBorder
+            className={styles.MdBookmarkBorder}
+            color="#F17900"
+          />
           Favorites
         </span>
       </h2>
