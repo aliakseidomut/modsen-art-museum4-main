@@ -1,7 +1,6 @@
 # Tестовое задание Modsen Art Museum
 
-## Deploy
-[](https://effervescent-cobbler-60e9c8.netlify.app/)
+[Deploy](https://effervescent-cobbler-60e9c8.netlify.app/)
 
 ## Содержание
 
