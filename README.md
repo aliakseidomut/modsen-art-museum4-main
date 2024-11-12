@@ -22,7 +22,6 @@ npm run start
 ## Тестирование
 
 ```
-npm install --force
 npm run test
 ```
 
