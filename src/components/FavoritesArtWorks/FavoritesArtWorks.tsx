@@ -14,7 +14,7 @@ export default function FavoritesArtWorks() {
     Api.getArtWorks(ids).then(res => {
       setArtworks(res);
     });
-  }, [ids]);
+  }, []);
 
   return (
     <div className={styles.FavoritesArtWorks}>
