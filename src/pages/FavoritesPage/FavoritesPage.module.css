@@ -13,3 +13,17 @@
   max-width: 500px;
   margin: 120px auto 0;
 }
+
+.MdBookmarkBorder {
+  size: 55px;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    font-size: 32px;
+  }
+
+  .MdBookmarkBorder {
+    size: 20px;
+  }
+}

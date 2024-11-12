@@ -1,11 +1,12 @@
 .ArtWorkPage {
   margin: 0 auto;
-  padding: 70px 0;
+  padding: 70px 10px;
   display: flex;
   justify-content: space-between;
   min-height: 500px;
   max-width: 1280px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .imgDiv {
@@ -54,4 +55,10 @@
 
 .ul span {
   color: #e0a449;
+}
+
+@media (max-width: 768px) {
+  .ArtWorkPage {
+    justify-content: center;
+  }
 }

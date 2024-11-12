@@ -8,7 +8,7 @@
 
 .h2 {
   font-size: 64px;
-  width: 684px;
+  max-width: 684px;
   text-align: center;
   margin-top: 120px;
 }
@@ -30,4 +30,12 @@
   margin-top: 50px;
   gap: 100px;
   min-height: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    font-size: 32px;
+  }
 }
