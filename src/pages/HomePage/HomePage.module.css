@@ -25,15 +25,6 @@
   color: #e0a449;
 }
 
-.artWorks {
-  display: flex;
-  margin-top: 50px;
-  gap: 100px;
-  min-height: 300px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 @media (max-width: 768px) {
   .h2 {
     font-size: 32px;

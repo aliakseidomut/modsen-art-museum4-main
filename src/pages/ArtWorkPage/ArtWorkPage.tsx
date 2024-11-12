@@ -21,17 +21,15 @@ export default function ArtWorkPage() {
   }, [id]);
 
   return (
-    <div className={styles.ArtWorkPage}>
-      <ErrorBoundary>
+    <ErrorBoundary>
+      <div className={styles.ArtWorkPage}>
         <div
           className={styles.imgDiv}
           style={{ backgroundImage: `url(${artWork?.imgUrl})` }}
         >
           {id && <ToFavoritesButton id={id} />}
         </div>
-      </ErrorBoundary>
 
-      <ErrorBoundary>
         <div className={styles.info}>
           <div className={styles.mainInfo}>
             <h2 className={styles.h2}>{artWork?.title}</h2>
@@ -60,7 +58,7 @@ export default function ArtWorkPage() {
             </ul>
           </div>
         </div>
-      </ErrorBoundary>
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }
