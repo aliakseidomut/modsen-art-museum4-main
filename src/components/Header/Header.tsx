@@ -10,7 +10,7 @@ function Header() {
   const burgerButtonRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useOutsideClick(() => setIsMenuOpen(false), burgerButtonRef);
 
-  const handleBurgerClick = () => setIsMenuOpen(prev => !prev);
+  const handleBurgerClick = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
     if (isMenuOpen) {

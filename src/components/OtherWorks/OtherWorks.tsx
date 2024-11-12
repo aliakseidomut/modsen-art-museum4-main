@@ -4,6 +4,7 @@ import { ArtWorkInfo } from "../../types/ArtWork";
 import ArtWorkCardMini from "@components/ArtWorkCardMini/ArtWorkCardMini";
 import Api from "@utils/Api";
 import { ClipLoader } from "react-spinners";
+import { LIMIT_OTHERWORKS_PAGE } from "@constants/uiConstants";
 
 export default function OtherWorks() {
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);
@@ -13,7 +14,7 @@ export default function OtherWorks() {
     const rand = Math.floor(1 + Math.random() * (100 + 1 - 1));
     setIsLoading(true);
 
-    Api.getPage(rand, 9).then(artworks => {
+    Api.getPage(LIMIT_OTHERWORKS_PAGE, rand).then(artworks => {
       setArtworks(artworks);
       setIsLoading(false);
     });

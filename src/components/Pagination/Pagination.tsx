@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Pagination.module.css";
+import { LIMIT_SEARCH_PAGE } from "@constants/uiConstants";
+import Api from "@utils/Api";
 
-interface PaginationProps {
+interface Props {
   onSetPage: (curPage: number) => void;
   curPage: number;
-  totalPages: number;
+  searchValue: string;
 }
 
-export default function Pagination({
-  onSetPage,
-  curPage,
-  totalPages,
-}: PaginationProps) {
+export default function Pagination({ onSetPage, curPage, searchValue }: Props) {
+  const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    Api.getTotalPages(LIMIT_SEARCH_PAGE, searchValue).then(res => {
+      setTotalPages(res);
+    });
+  }, [totalPages]);
+
   const handleClick = (num: number) => {
     if (num !== curPage) {
       onSetPage(num);

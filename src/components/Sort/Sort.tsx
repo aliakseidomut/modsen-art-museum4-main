@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Sort.module.css";
 
-interface SortProps {
+interface Props {
   onSortChange: (sort: string) => void;
 }
 
-export default function Sort({ onSortChange }: SortProps) {
+export default function Sort({ onSortChange }: Props) {
   const [selectedSort, setSelectedSort] = useState("");
 
   const handleSortChange = (event: React.ChangeEvent<HTMLInputElement>) => {

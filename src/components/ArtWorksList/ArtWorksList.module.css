@@ -1,0 +1,8 @@
+.ArtWorksList {
+  display: flex;
+  margin-top: 50px;
+  gap: 100px;
+  min-height: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
