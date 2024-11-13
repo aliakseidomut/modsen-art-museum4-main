@@ -40,7 +40,7 @@ export default function ArtWorkPage() {
 
   return (
     <ErrorBoundary>
-      <div className={styles.ArtWorkPage}>
+      <main className={styles.ArtWorkPage}>
         <div
           className={styles.imgDiv}
           style={{ backgroundImage: `url(${artWork?.imgUrl})` }}
@@ -49,12 +49,12 @@ export default function ArtWorkPage() {
         </div>
 
         <div className={styles.info}>
-          <div className={styles.mainInfo}>
+          <section className={styles.mainInfo}>
             <h2 className={styles.h2}>{artWork?.title}</h2>
             <h3 className={styles.h3}>{artWork?.artistTitle}</h3>
             <h4 className={styles.h4}>{artWork?.dateDisplay}</h4>
-          </div>
-          <div className={styles.overview}>
+          </section>
+          <section className={styles.overview}>
             <h2 className={styles.h2}>Overview</h2>
             <ul className={styles.ul}>
               <li>
@@ -74,9 +74,9 @@ export default function ArtWorkPage() {
                 {artWork?.creditLine}
               </li>
             </ul>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
     </ErrorBoundary>
   );
 }

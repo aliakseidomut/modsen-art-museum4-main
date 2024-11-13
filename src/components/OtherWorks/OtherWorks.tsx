@@ -29,7 +29,7 @@ export default function OtherWorks() {
   }, []);
 
   return (
-    <div className={styles.OtherWorks}>
+    <section className={styles.OtherWorks}>
       <h4 className={styles.h4}>Here some more</h4>
       <h3 className={styles.h3}>Other works for you</h3>
 
@@ -48,6 +48,6 @@ export default function OtherWorks() {
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }

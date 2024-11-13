@@ -33,32 +33,36 @@ export default function HomePage() {
 
   return (
     <ErrorBoundary>
-      <div className={styles.HomePage}>
+      <main className={styles.HomePage}>
         <h2 className={styles.h2}>
           Let&apos;s Find Some <span style={{ color: "#F17900" }}>Art</span>{" "}
           Here!
         </h2>
 
-        <Search onSearch={handleSearch} />
-        <Sort onSortChange={handleSortChange} />
+        <section className={styles.searchAndSort}>
+          <Search onSearch={handleSearch} />
+          <Sort onSortChange={handleSortChange} />
+        </section>
 
-        <h4 className={styles.h4}>Topics for you</h4>
-        <h3 className={styles.h3}>Our special gallery</h3>
+        <section className={styles.gallery}>
+          <h4 className={styles.h4}>Topics for you</h4>
+          <h3 className={styles.h3}>Our special gallery</h3>
 
-        <ArtWorksList
-          curPage={debouncedCurPage}
-          searchValue={debouncedSearchValue}
-          sortValue={debouncedSortValue}
-        />
+          <ArtWorksList
+            curPage={debouncedCurPage}
+            searchValue={debouncedSearchValue}
+            sortValue={debouncedSortValue}
+          />
 
-        <Pagination
-          onSetPage={handleSetPage}
-          curPage={curPage}
-          searchValue={debouncedSearchValue}
-        />
+          <Pagination
+            onSetPage={handleSetPage}
+            curPage={curPage}
+            searchValue={debouncedSearchValue}
+          />
+        </section>
 
         <OtherWorks />
-      </div>
+      </main>
     </ErrorBoundary>
   );
 }

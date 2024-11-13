@@ -42,7 +42,7 @@ export default function ArtWorksList({
   }, [curPage, searchValue, sortValue]);
 
   return (
-    <section className={styles.ArtWorksList}>
+    <div className={styles.ArtWorksList}>
       {isLoading ? (
         <ClipLoader color={"#F17900"} loading={isLoading} size={50} />
       ) : !artworks.length ? (
@@ -58,6 +58,6 @@ export default function ArtWorksList({
           />
         ))
       )}
-    </section>
+    </div>
   );
 }

@@ -7,7 +7,7 @@ import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
 export default function FavoritesPage() {
   return (
     <ErrorBoundary>
-      <div className={styles.FavoritesPage}>
+      <main className={styles.FavoritesPage}>
         <h2 className={styles.h2}>
           Here Are Your
           <span style={{ color: "#F17900" }}>
@@ -20,7 +20,7 @@ export default function FavoritesPage() {
         </h2>
 
         <FavoritesArtWorks />
-      </div>
+      </main>
     </ErrorBoundary>
   );
 }
