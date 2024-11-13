@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Pagination from "@components/Pagination/Pagination";
-import Search from "@components/Search/Search";
-import Sort from "@components/Sort/Sort";
-import useDebounce from "@utils/hooks/useDebounce";
+import Pagination from "../../components/Pagination/Pagination";
+import Search from "../../components/Search/Search";
+import Sort from "../../components/Sort/Sort";
+import useDebounce from "../../utils/hooks/useDebounce";
 import styles from "./HomePage.module.css";
-import OtherWorks from "@components/OtherWorks/OtherWorks";
-import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
-import ArtWorksList from "@components/ArtWorksList/ArtWorksList";
+import OtherWorks from "../../components/OtherWorks/OtherWorks";
+import ErrorBoundary from "../../components/ErrorBoundary/ErrorBoundary";
+import ArtWorksList from "../../components/ArtWorksList/ArtWorksList";
 
 export default function HomePage() {
   const [searchValue, setSearchValue] = useState("");
