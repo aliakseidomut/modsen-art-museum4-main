@@ -94,8 +94,8 @@ npm run test
     - commitlint.config.mjs
   (В основном используются конфигурации по умолчанию)
 
-- Использование корректного GitFlow в проекте;
-![Screenshot 2024-11-13 011314](https://github.com/user-attachments/assets/e3b27502-a3a7-4a9c-84e5-33276f8b932b)
+- Использование корректного GitFlow в проекте:
+    - ![Screenshot 2024-11-13 011314](https://github.com/user-attachments/assets/e3b27502-a3a7-4a9c-84e5-33276f8b932b)
 
 - Использование сторонних библиотек для стилей - запрещены, кроме рекомендуемых в пункте “Используемые технологии”.
 
