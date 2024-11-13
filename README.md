@@ -44,10 +44,11 @@ npm run test
 
 - Возможность добавления картины в список избранных с сохранением их в LocalStorage:
     - Добавление картины в список избранных происходит с помощью кнопки @components/ToFavoritesButton
-
-- Возможность просмотра более детальной информации о картине:
     - ![image](https://github.com/user-attachments/assets/8fc6c153-1829-4777-a40a-aace9cc27701)
     - ![image](https://github.com/user-attachments/assets/fc5f2199-f716-4ad2-bba6-fbe218b497ee)
+
+- Возможность просмотра более детальной информации о картине:
+    - ![image](https://github.com/user-attachments/assets/81f2a40c-ce63-4de0-a244-b4269af0b356)
 
 - Интерфейс для просмотра списка избранных и возможности удаления из списка:
     - ![image](https://github.com/user-attachments/assets/12bff17b-5bb4-4f55-a92d-1c4d0e7e7533)
@@ -87,6 +88,8 @@ npm run test
 
 - Организацию файловой структуры react приложения. Ссылка на структуру: [Структура проекта](https://github.com/mkrivel/structure);
 - Деплой приложения на платформу GitHub Pages или иные другие (Netlify, Vercel);
+    - [Netlify](https://effervescent-cobbler-60e9c8.netlify.app/)
+  
 - Настройку конфигурации eslint, prettier, husky, commitlint:
     - eslint.config.mjs
     - .prettierrc.yaml
