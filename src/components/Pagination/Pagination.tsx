@@ -13,9 +13,19 @@ export default function Pagination({ onSetPage, curPage, searchValue }: Props) {
   const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    Api.getTotalPages(LIMIT_SEARCH_PAGE, searchValue).then(res => {
-      setTotalPages(res);
-    });
+    const fetchData = async () => {
+      try {
+        const totalPages = await Api.getTotalPages(
+          LIMIT_SEARCH_PAGE,
+          searchValue,
+        );
+        setTotalPages(totalPages);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
   }, [totalPages, searchValue]);
 
   const handleClick = (num: number) => {

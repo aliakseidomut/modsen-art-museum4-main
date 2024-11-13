@@ -11,13 +11,18 @@ export default function ArtWorkPage() {
   const [artWork, setArtWork] = useState<ArtWorkInfo>();
 
   useEffect(() => {
-    if (id) {
-      Api.getArtWork(id)
-        .then(res => setArtWork(res))
-        .catch(error => {
-          throw new Error(error);
-        });
-    }
+    const fetchData = async () => {
+      if (id) {
+        try {
+          const artwork = await Api.getArtWork(id);
+          setArtWork(artwork);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
+    fetchData();
   }, [id]);
 
   return (

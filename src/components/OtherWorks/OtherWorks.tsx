@@ -12,12 +12,20 @@ export default function OtherWorks() {
 
   useEffect(() => {
     const rand = Math.floor(1 + Math.random() * (100 + 1 - 1));
-    setIsLoading(true);
 
-    Api.getPage(LIMIT_OTHERWORKS_PAGE, rand).then(artworks => {
-      setArtworks(artworks);
-      setIsLoading(false);
-    });
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const artworks = await Api.getPage(LIMIT_OTHERWORKS_PAGE, rand);
+        setArtworks(artworks);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
