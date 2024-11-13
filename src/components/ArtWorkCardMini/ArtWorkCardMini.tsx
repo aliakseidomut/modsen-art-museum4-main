@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import ToFavoritesButton from "@components/ToFavoritesButton/ToFavoritesButton";
+import ToFavoritesButton from "../../components/ToFavoritesButton/ToFavoritesButton";
 import styles from "./ArtWorkCardMini.module.css";
 
 interface Props {
