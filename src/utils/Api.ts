@@ -80,7 +80,7 @@ export default class Api {
     limit: number,
     search?: string,
   ): Promise<number> {
-    const url = buildUrl("artworks", {
+    const url = buildUrl("artworks/search", {
       limit: limit.toString(),
       q: search || "",
     });
