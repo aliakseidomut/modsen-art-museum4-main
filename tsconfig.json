@@ -22,7 +22,8 @@
       "@constants/*": ["constants/*"],
       "@pages/*": ["pages/*"],
       "@types/*": ["types/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@context/*": ["context/*"]
     }
   },
   "include": ["src"]

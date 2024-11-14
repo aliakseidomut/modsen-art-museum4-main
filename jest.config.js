@@ -17,6 +17,7 @@ module.exports = {
     "^pages(.*)$": "<rootDir>/src/pages$1",
     "^constants(.*)$": "<rootDir>/src/constants$1",
     "^assets(.*)$": "<rootDir>/src/assets$1",
+    "^context(.*)$": "<rootDir>/src/context$1",
   },
 
   transformIgnorePatterns: [

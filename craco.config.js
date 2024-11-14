@@ -9,6 +9,7 @@ module.exports = {
       "@pages": path.resolve(__dirname, "src/pages/"),
       "@types": path.resolve(__dirname, "src/types/"),
       "@utils": path.resolve(__dirname, "src/utils/"),
+      "@context": path.resolve(__dirname, "src/context/"),
     },
   },
 };

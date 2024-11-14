@@ -1,16 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ArtWorkInfo } from "../../types/ArtWork";
-import { getAllLocalStorageKeys } from "@utils/getAllLocalStorageKeys";
 import ArtWorkCardMini from "@components/ArtWorkCardMini/ArtWorkCardMini";
 import Api from "@utils/Api";
 import styles from "./FavoritesArtWorks.module.css";
 import { ClipLoader } from "react-spinners";
+import { FavoritesContext } from "../../context/FavoritesContext";
 
 export default function FavoritesArtWorks() {
   const [artworks, setArtworks] = useState<ArtWorkInfo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const ids = useMemo(() => getAllLocalStorageKeys(), []);
+  const { ids } = useContext(FavoritesContext);
 
   useEffect(() => {
     const fetchData = async () => {
