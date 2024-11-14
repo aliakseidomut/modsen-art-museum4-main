@@ -1,5 +1,5 @@
 import React, { createContext, useState, ReactNode } from "react";
-import { getAllLocalStorageKeys } from "@utils/getAllLocalStorageKeys";
+import { getAllLocalStorageKeys } from "../utils/getAllLocalStorageKeys";
 
 interface FavoritesContext {
   ids: string[];

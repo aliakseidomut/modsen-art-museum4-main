@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdBookmarkBorder } from "react-icons/md";
 import styles from "./ToFavoritesButton.module.css";
-import { FavoritesContext } from "@context/FavoritesContext";
+import { FavoritesContext } from "../../context/FavoritesContext";
 
 export default function ToFavoritesButton({ id }: { id: number | string }) {
   const [isActive, setIsActive] = useState(false);
