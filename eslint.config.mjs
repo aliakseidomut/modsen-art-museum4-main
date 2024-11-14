@@ -37,6 +37,11 @@ export default [
     },
   },
   {
-    ignores: ["commitlint.config.js", "craco.config.js", "jest.config.js"],
+    ignores: [
+      "commitlint.config.js",
+      "craco.config.js",
+      "jest.config.js",
+      "build",
+    ],
   },
 ];
