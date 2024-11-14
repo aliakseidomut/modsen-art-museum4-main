@@ -12,16 +12,24 @@ export default function OtherWorks() {
 
   useEffect(() => {
     const rand = Math.floor(1 + Math.random() * (100 + 1 - 1));
-    setIsLoading(true);
 
-    Api.getPage(LIMIT_OTHERWORKS_PAGE, rand).then(artworks => {
-      setArtworks(artworks);
-      setIsLoading(false);
-    });
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const artworks = await Api.getPage(LIMIT_OTHERWORKS_PAGE, rand);
+        setArtworks(artworks);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
-    <div className={styles.OtherWorks}>
+    <section className={styles.OtherWorks}>
       <h4 className={styles.h4}>Here some more</h4>
       <h3 className={styles.h3}>Other works for you</h3>
 
@@ -40,6 +48,6 @@ export default function OtherWorks() {
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }

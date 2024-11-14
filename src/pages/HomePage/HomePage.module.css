@@ -1,7 +1,6 @@
 .HomePage {
   display: flex;
   flex-direction: column;
-  align-items: center;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -11,11 +10,17 @@
   max-width: 684px;
   text-align: center;
   margin-top: 120px;
+  margin: 120px auto 0;
+}
+
+.searchAndSort {
+  margin: 0 auto;
 }
 
 .h3 {
   font-size: 32px;
   font-weight: 400;
+  text-align: center;
 }
 
 .h4 {
@@ -23,6 +28,13 @@
   font-weight: 400;
   margin-top: 100px;
   color: #e0a449;
+  text-align: center;
+}
+
+.gallery {
+  margin: 0 auto;
+  max-width: 880px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {

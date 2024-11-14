@@ -21,21 +21,31 @@ export default function ArtWorksList({
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-
-    Api.getPage(LIMIT_SEARCH_PAGE, curPage, searchValue, sortValue).then(
-      artworks => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const artworks = await Api.getPage(
+          LIMIT_SEARCH_PAGE,
+          curPage,
+          searchValue,
+          sortValue,
+        );
         setArtworks(artworks);
+      } catch (error) {
+        console.error(error);
+      } finally {
         setIsLoading(false);
-      },
-    );
+      }
+    };
+
+    fetchData();
   }, [curPage, searchValue, sortValue]);
 
   return (
-    <section className={styles.ArtWorksList}>
+    <div className={styles.ArtWorksList}>
       {isLoading ? (
         <ClipLoader color={"#F17900"} loading={isLoading} size={50} />
-      ) : artworks.length === 0 ? (
+      ) : !artworks.length ? (
         <h2>Not found</h2>
       ) : (
         artworks.map(artwork => (
@@ -48,6 +58,6 @@ export default function ArtWorksList({
           />
         ))
       )}
-    </section>
+    </div>
   );
 }

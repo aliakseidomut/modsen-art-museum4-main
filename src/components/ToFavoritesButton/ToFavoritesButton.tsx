@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdBookmarkBorder } from "react-icons/md";
 import styles from "./ToFavoritesButton.module.css";
+import { FavoritesContext } from "../../context/FavoritesContext";
 
 export default function ToFavoritesButton({ id }: { id: number | string }) {
   const [isActive, setIsActive] = useState(false);
+  const { updateFavorites } = useContext(FavoritesContext);
 
   useEffect(() => {
     if (localStorage.getItem(`${id}`)) {
@@ -21,6 +23,8 @@ export default function ToFavoritesButton({ id }: { id: number | string }) {
       localStorage.setItem(`${id}`, `${null}`);
       setIsActive(true);
     }
+
+    updateFavorites();
   };
 
   return (
