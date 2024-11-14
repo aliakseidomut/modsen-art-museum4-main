@@ -1,12 +1,12 @@
 import React, { createContext, useState, ReactNode } from "react";
 import { getAllLocalStorageKeys } from "../utils/getAllLocalStorageKeys";
 
-interface FavoritesContext {
+interface FavoritesContextType {
   ids: string[];
   updateFavorites: () => void;
 }
 
-export const FavoritesContext = createContext<FavoritesContext>({
+export const FavoritesContext = createContext<FavoritesContextType>({
   ids: [],
   updateFavorites: () => {},
 });
