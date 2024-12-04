@@ -1,4 +1,4 @@
-# Modsen Art Museum
+# Art Museum
 
 ![image](https://github.com/user-attachments/assets/3aa0e4bf-ab1c-4eb6-9e11-0f62a2718bd1)
 
